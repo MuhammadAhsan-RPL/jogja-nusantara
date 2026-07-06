@@ -129,11 +129,10 @@ const id: Dict = {
   // footer
   "footer.colophon": "Colophon",
   "footer.nav": "Navigasi",
-  "footer.credit.title": "Kredit",
+  "footer.credit.title": "Atribusi",
   "footer.about": "Sebuah esai visual interaktif tentang Daerah Istimewa Yogyakarta — sejarah, budaya, kuliner, dan ekosistem digitalnya.",
-  "footer.credit": "Dibuat untuk lomba Nusantara Digital City",
-  "footer.rights": "Hak konten merujuk sumber publik. Foto editorial dibuat khusus.",
-  "footer.edition": "© MMXXVI — Edisi Lomba",
+  "footer.credit": "Dikembangkan khusus untuk Nusantara Digital City. Konten dirangkum dari berbagai sumber publik dengan dokumentasi foto editorial eksklusif.",
+  "footer.edition": "© MMXXVI — JOGJA EXPLORER · EDISI NUSANTARA DIGITAL CITY",
 };
 
 const en: Dict = {
@@ -247,10 +246,9 @@ const en: Dict = {
   "kontak.hoursVal": "Monday — Friday\n09:00 – 17:00 WIB",
   "footer.colophon": "Colophon",
   "footer.nav": "Navigation",
-  "footer.credit.title": "Credits",
+  "footer.credit.title": "Attribution",
   "footer.about": "An interactive visual essay on the Special Region of Yogyakarta — its history, culture, cuisine, and digital ecosystem.",
-  "footer.credit": "Built for the Nusantara Digital City competition",
-  "footer.rights": "Content references public sources. Editorial photography commissioned.",
+  "footer.credit": "Developed specifically for Nusantara Digital City. Content is compiled from various public sources, featuring exclusive editorial photography.",
   "footer.edition": "© MMXXVI — Competition Edition",
 };
 
@@ -366,10 +364,9 @@ const zh: Dict = {
   "kontak.hoursVal": "周一 — 周五\n09:00 – 17:00 WIB",
   "footer.colophon": "版本说明",
   "footer.nav": "导航",
-  "footer.credit.title": "致谢",
+  "footer.credit.title": " 鸣谢",
   "footer.about": "一篇关于日惹特区的互动视觉随笔 —— 历史、文化、美食与数字生态。",
-  "footer.credit": "为「群岛数字城市」大赛而作",
-  "footer.rights": "内容引用公开资料。编辑摄影专门委托制作。",
+  "footer.credit": "专为 Nusantara Digital City 开发。内容汇编自各类公共来源，并包含独家编辑摄影作品。",
   "footer.edition": "© MMXXVI — 大赛版本",
 };
 

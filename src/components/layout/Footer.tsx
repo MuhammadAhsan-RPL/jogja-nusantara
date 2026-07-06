@@ -33,13 +33,12 @@ export function Footer() {
             <p className="eyebrow">{t("footer.credit.title")}</p>
             <p className="mt-4 text-sm leading-relaxed text-ink-soft">
               {t("footer.credit")}.<br />
-              {t("footer.rights")}
             </p>
           </div>
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-[var(--color-rule)] pt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-soft md:flex-row md:items-center">
-         <span>© 2026 — Jogja Explorer</span>
+         <span>© 2026 — Jogja Heritage</span>
           <span>Memayu hayuning bawana</span>
         </div>
       </div>
