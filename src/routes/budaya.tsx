@@ -5,16 +5,17 @@ import batik from "../assets/budaya-batik.jpg";
 import gamelan from "../assets/budaya-gamelan.jpg";
 import wayang from "../assets/budaya-wayang.jpg";
 import tari from "../assets/budaya-tari.jpg";
+import { createSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/budaya")({
-  head: () => ({
-    meta: [
-      { title: "Budaya Yogyakarta — Batik, Gamelan, Wayang, Tari" },
-      { name: "description", content: "Empat warisan budaya hidup di Yogyakarta: batik Parang & Kawung, gamelan, wayang kulit, dan tari Bedhaya." },
-      { property: "og:title", content: "Budaya Yogyakarta — Jogja Heritage" },
-      { property: "og:image", content: batik },
-    ],
-  }),
+  head: () =>
+    createSeo({
+      title: "Budaya Yogyakarta — Batik, Gamelan, Wayang, Tari",
+      description:
+        "Empat warisan budaya hidup di Yogyakarta: batik Parang & Kawung, gamelan, wayang kulit, dan tari Bedhaya.",
+      url: "https://www.jogjadigitalcity.id/budaya",
+      image: batik,
+    }),
   component: BudayaPage,
 });
 
@@ -71,7 +72,8 @@ function BudayaPage() {
         <div className="md:col-span-8">
           <SectionLabel number="02" label={t("nav.budaya")} />
           <h1 className="mt-6 font-display text-5xl leading-[1.02] text-ink md:text-7xl">
-            {t("budaya.title.a")} <span className="italic text-terracotta">{t("budaya.title.em")}</span>
+            {t("budaya.title.a")}{" "}
+            <span className="italic text-terracotta">{t("budaya.title.em")}</span>
           </h1>
         </div>
         <div className="md:col-span-4">
@@ -81,12 +83,24 @@ function BudayaPage() {
 
       <div className="mt-20 space-y-32">
         {items.map((it, i) => (
-          <div key={i} className={`grid items-center gap-10 md:grid-cols-12 ${i % 2 ? "md:[&>figure]:order-2" : ""}`}>
+          <div
+            key={i}
+            className={`grid items-center gap-10 md:grid-cols-12 ${i % 2 ? "md:[&>figure]:order-2" : ""}`}
+          >
             <figure className="md:col-span-7">
-              <img src={it.img} alt={tl(it.name)} width={1280} height={896} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+              <img
+                src={it.img}
+                alt={tl(it.name)}
+                width={1280}
+                height={896}
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover"
+              />
             </figure>
             <div className="md:col-span-5">
-              <p className="eyebrow">{String(i + 1).padStart(2, "0")} — {tl(it.eyebrow)}</p>
+              <p className="eyebrow">
+                {String(i + 1).padStart(2, "0")} — {tl(it.eyebrow)}
+              </p>
               <h2 className="mt-4 font-display text-4xl text-ink md:text-5xl">{tl(it.name)}</h2>
               <p className="hairline my-6 w-16 !bg-terracotta" />
               <p className="text-base leading-relaxed text-ink-soft">{tl(it.body)}</p>
@@ -94,8 +108,6 @@ function BudayaPage() {
           </div>
         ))}
       </div>
-
-      
     </article>
   );
 }

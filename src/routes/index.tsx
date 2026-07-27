@@ -5,25 +5,110 @@ import { GununganAnimation } from "@/components/ui-heritage/GununganAnimation";
 import { destinations } from "@/data/wisata";
 import heroTugu from "@/assets/hero-tugu.jpg";
 import { ArrowUpRight } from "lucide-react";
+import { websiteSchema } from "../lib/schemas";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Jogja Heritage — Yogyakarta, Kota Pusaka & Masa Depan Digital" },
-      { name: "description", content: "Esai visual interaktif Daerah Istimewa Yogyakarta: sejarah Mataram, budaya keraton, kuliner gudeg, wisata Borobudur–Prambanan, dan Jogja Smart City." },
-      { property: "og:title", content: "Jogja Heritage — Yogyakarta" },
-      { property: "og:description", content: "Sejarah, budaya, kuliner, wisata, dan teknologi Yogyakarta dalam satu naratif editorial." },
-      { property: "og:image", content: heroTugu },
+      {
+        title: "Jogja Heritage — Yogyakarta, Kota Pusaka & Masa Depan Digital",
+      },
+
+      {
+        name: "description",
+        content:
+          "Jelajahi sejarah, budaya, kuliner, wisata, dan teknologi Yogyakarta melalui pengalaman editorial interaktif.",
+      },
+
+      {
+        name: "keywords",
+        content:
+          "Yogyakarta, Jogja, wisata Jogja, budaya Jogja, sejarah Jogja, kuliner Jogja, Jogja Heritage, Jogja Digital City",
+      },
+
+      {
+        name: "robots",
+        content: "index, follow",
+      },
+
+      {
+        name: "author",
+        content: "Muhammad Ahsan",
+      },
+
+      {
+        name: "theme-color",
+        content: "#E8DFD0",
+      },
+
+      {
+        property: "og:title",
+        content: "Jogja Heritage — Yogyakarta",
+      },
+
+      {
+        property: "og:description",
+        content: "Sejarah, budaya, kuliner, wisata dan teknologi Yogyakarta.",
+      },
+
+      {
+        property: "og:image",
+        content: heroTugu,
+      },
+
+      {
+        property: "og:type",
+        content: "website",
+      },
+
+      {
+        property: "og:url",
+        content: "https://www.jogjadigitalcity.id/",
+      },
+
+      {
+        property: "og:site_name",
+        content: "Jogja Heritage",
+      },
+
+      {
+        property: "og:locale",
+        content: "id_ID",
+      },
+
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+
+      {
+        name: "twitter:title",
+        content: "Jogja Heritage",
+      },
+
+      {
+        name: "twitter:description",
+        content: "Sejarah, budaya, kuliner, wisata dan teknologi Yogyakarta.",
+      },
+
+      {
+        name: "twitter:image",
+        content: heroTugu,
+      },
     ],
 
     links: [
       {
+        rel: "canonical",
+        href: "https://www.jogjadigitalcity.id/",
+      },
+
+      {
         rel: "icon",
-        type: "image/png", 
-        href: "/favicon.png", 
+        href: "/favicon.png",
+        type: "image/png",
       },
     ],
-
   }),
   component: Index,
 });
@@ -43,6 +128,13 @@ function Index() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteSchema),
+        }}
+      />
+
       {/* HERO */}
       <section className="relative">
         <GununganAnimation />
@@ -65,7 +157,10 @@ function Index() {
                 className="group inline-flex items-center gap-2 border border-ink bg-ink px-7 py-4 text-sm tracking-wide text-cream transition-colors hover:bg-terracotta hover:border-terracotta"
               >
                 {t("home.cta.explore")}
-                <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </Link>
               <Link
                 to="/peta"
@@ -95,14 +190,16 @@ function Index() {
         {/* marquee filosofi */}
         <div className="border-y border-[var(--color-rule)] bg-paper py-5 overflow-hidden">
           <div className="flex gap-12 whitespace-nowrap font-display text-2xl italic text-ink-soft animate-[scroll_45s_linear_infinite]">
-            {Array(6).fill(0).map((_, i) => (
-              <span key={i} className="flex items-center gap-12">
-                Hamemayu Hayuning Bawana
-                <span className="text-terracotta">✦</span>
-                Sawiji · Greget · Sengguh · Ora Mingkuh
-                <span className="text-terracotta">✦</span>
-              </span>
-            ))}
+            {Array(6)
+              .fill(0)
+              .map((_, i) => (
+                <span key={i} className="flex items-center gap-12">
+                  Hamemayu Hayuning Bawana
+                  <span className="text-terracotta">✦</span>
+                  Sawiji · Greget · Sengguh · Ora Mingkuh
+                  <span className="text-terracotta">✦</span>
+                </span>
+              ))}
           </div>
         </div>
       </section>
@@ -111,7 +208,8 @@ function Index() {
       <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
         <SectionLabel number="I" label={t("home.pillars")} />
         <SectionTitle>
-          {t("home.pillars.title.a")} <span className="italic text-terracotta">{t("home.pillars.title.b")}</span>
+          {t("home.pillars.title.a")}{" "}
+          <span className="italic text-terracotta">{t("home.pillars.title.b")}</span>
         </SectionTitle>
 
         <div className="mt-16 divide-y divide-[var(--color-rule)] border-y border-[var(--color-rule)]">
@@ -121,13 +219,20 @@ function Index() {
               to={p.to}
               className="group grid grid-cols-12 items-baseline gap-6 py-8 transition-colors hover:bg-paper"
             >
-              <span className="col-span-2 font-mono text-sm tracking-widest text-terracotta md:col-span-1">{p.no}</span>
+              <span className="col-span-2 font-mono text-sm tracking-widest text-terracotta md:col-span-1">
+                {p.no}
+              </span>
               <h3 className="col-span-10 font-display text-3xl text-ink md:col-span-3 md:text-5xl">
                 {t(p.titleKey)}
               </h3>
-              <p className="col-span-12 text-sm text-ink-soft md:col-span-6 md:text-base">{t(p.subKey)}</p>
+              <p className="col-span-12 text-sm text-ink-soft md:col-span-6 md:text-base">
+                {t(p.subKey)}
+              </p>
               <span className="col-span-12 flex justify-end md:col-span-2">
-                <ArrowUpRight size={28} className="text-ink-soft transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-terracotta" />
+                <ArrowUpRight
+                  size={28}
+                  className="text-ink-soft transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-terracotta"
+                />
               </span>
             </Link>
           ))}
@@ -153,10 +258,14 @@ function Index() {
           <div>
             <SectionLabel number="II" label={t("home.featured")} />
             <SectionTitle>
-              {t("home.featured.title.a")} <span className="italic text-terracotta">{t("home.featured.title.b")}</span>
+              {t("home.featured.title.a")}{" "}
+              <span className="italic text-terracotta">{t("home.featured.title.b")}</span>
             </SectionTitle>
           </div>
-          <Link to="/wisata" className="font-mono text-xs uppercase tracking-[0.3em] text-terracotta hover:underline">
+          <Link
+            to="/wisata"
+            className="font-mono text-xs uppercase tracking-[0.3em] text-terracotta hover:underline"
+          >
             {t("home.featured.all")} →
           </Link>
         </div>
@@ -175,10 +284,16 @@ function Index() {
                 />
               </div>
               <div className="mt-5 flex items-baseline justify-between">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-terracotta">{t("cat." + d.category)}</p>
-                <p className="font-mono text-[11px] text-ink-soft">{String(i + 1).padStart(2, "0")} / 03</p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-terracotta">
+                  {t("cat." + d.category)}
+                </p>
+                <p className="font-mono text-[11px] text-ink-soft">
+                  {String(i + 1).padStart(2, "0")} / 03
+                </p>
               </div>
-              <h3 className="mt-2 font-display text-3xl text-ink group-hover:text-terracotta">{d.name}</h3>
+              <h3 className="mt-2 font-display text-3xl text-ink group-hover:text-terracotta">
+                {d.name}
+              </h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{tl(d.short)}</p>
             </Link>
           ))}

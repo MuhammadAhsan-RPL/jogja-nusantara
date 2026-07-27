@@ -2,16 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SectionLabel } from "@/components/ui-heritage/SectionLabel";
 import { useI18n } from "@/lib/i18n";
 import kampus from "@/assets/teknologi-kampus.jpg";
+import { createSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/teknologi")({
-  head: () => ({
-    meta: [
-      { title: "Teknologi Yogyakarta — Jogja Smart City & Ekosistem Digital" },
-      { name: "description", content: "Jogja Smart Province, kampus UGM/UII/UNY, dan ekosistem startup digital Yogyakarta." },
-      { property: "og:title", content: "Teknologi Yogyakarta — Jogja Heritage" },
-      { property: "og:image", content: kampus },
-    ],
-  }),
+  head: () =>
+    createSeo({
+      title: "Teknologi Yogyakarta — Jogja Smart City & Ekosistem Digital",
+      description:
+        "Jogja Smart Province, kampus UGM/UII/UNY, dan ekosistem startup digital Yogyakarta.",
+      url: "https://www.jogjadigitalcity.id/teknologi",
+      image: kampus,
+    }),
   component: TeknologiPage,
 });
 
@@ -36,7 +37,8 @@ function TeknologiPage() {
         <div className="md:col-span-8">
           <SectionLabel number="06" label={t("nav.teknologi")} />
           <h1 className="mt-6 font-display text-5xl leading-[1.02] text-ink md:text-7xl">
-            {t("tek.title.a")} <span className="italic text-terracotta">{t("tek.title.em")}</span> {t("tek.title.b")}
+            {t("tek.title.a")} <span className="italic text-terracotta">{t("tek.title.em")}</span>{" "}
+            {t("tek.title.b")}
           </h1>
         </div>
         <div className="md:col-span-4">
@@ -45,15 +47,26 @@ function TeknologiPage() {
       </header>
 
       <figure className="my-16">
-        <img src={kampus} alt="Kampus Yogyakarta" width={1280} height={896} loading="lazy" className="w-full" />
-        <figcaption className="mt-3 font-display italic text-sm text-ink-soft">{t("tek.caption")}</figcaption>
+        <img
+          src={kampus}
+          alt="Kampus Yogyakarta"
+          width={1280}
+          height={896}
+          loading="lazy"
+          className="w-full"
+        />
+        <figcaption className="mt-3 font-display italic text-sm text-ink-soft">
+          {t("tek.caption")}
+        </figcaption>
       </figure>
 
       <div className="grid gap-px bg-[var(--color-rule)] md:grid-cols-4">
         {stats.map((s) => (
           <div key={s.l} className="bg-cream p-8 text-center md:p-10">
             <p className="font-display text-5xl text-terracotta md:text-6xl">{s.n}</p>
-            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-soft">{s.l}</p>
+            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-soft">
+              {s.l}
+            </p>
           </div>
         ))}
       </div>

@@ -2,16 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SectionLabel } from "@/components/ui-heritage/SectionLabel";
 import { useI18n, type LocalizedText } from "@/lib/i18n";
 import heroKeraton from "@/assets/wisata-keraton.jpg";
+import { createSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/sejarah")({
-  head: () => ({
-    meta: [
-      { title: "Sejarah Yogyakarta — Dari Mataram Kuno hingga Daerah Istimewa" },
-      { name: "description", content: "Lintasan sejarah Yogyakarta: Mataram Kuno, Mataram Islam, Perjanjian Giyanti 1755, Kasultanan, hingga Daerah Istimewa." },
-      { property: "og:title", content: "Sejarah Yogyakarta — Jogja Heritage" },
-      { property: "og:image", content: heroKeraton },
-    ],
-  }),
+  head: () =>
+    createSeo({
+      title: "Sejarah Yogyakarta — Dari Mataram Kuno hingga Daerah Istimewa",
+      description:
+        "Lintasan sejarah Yogyakarta: Mataram Kuno, Mataram Islam, Perjanjian Giyanti 1755, Kasultanan, hingga Daerah Istimewa.",
+      url: "https://www.jogjadigitalcity.id/sejarah",
+      image: heroKeraton,
+    }),
   component: SejarahPage,
 });
 
@@ -38,7 +39,11 @@ const eras: Era[] = [
   },
   {
     year: "1587",
-    title: { id: "Berdirinya Mataram Islam", en: "Founding of Islamic Mataram", zh: "伊斯兰马打蓝建立" },
+    title: {
+      id: "Berdirinya Mataram Islam",
+      en: "Founding of Islamic Mataram",
+      zh: "伊斯兰马打蓝建立",
+    },
     body: {
       id: "Panembahan Senopati memindahkan pusat kekuasaan ke Kotagede dan mendirikan Kesultanan Mataram Islam — cikal-bakal Yogyakarta dan Surakarta modern.",
       en: "Panembahan Senopati moved the seat of power to Kotagede and founded the Sultanate of Islamic Mataram — the seed of modern Yogyakarta and Surakarta.",
@@ -100,17 +105,30 @@ function SejarahPage() {
         <div className="md:col-span-7">
           <SectionLabel number="01" label={t("nav.sejarah")} />
           <h1 className="mt-6 font-display text-5xl leading-[1.02] text-ink md:text-7xl">
-            {t("sejarah.title.a")} <span className="italic text-terracotta">{t("sejarah.title.em")}</span> {t("sejarah.title.b")}
+            {t("sejarah.title.a")}{" "}
+            <span className="italic text-terracotta">{t("sejarah.title.em")}</span>{" "}
+            {t("sejarah.title.b")}
           </h1>
         </div>
         <div className="md:col-span-5">
-          <p className="drop-cap mt-2 text-base leading-relaxed text-ink-soft">{t("sejarah.lead")}</p>
+          <p className="drop-cap mt-2 text-base leading-relaxed text-ink-soft">
+            {t("sejarah.lead")}
+          </p>
         </div>
       </header>
 
       <figure className="my-16">
-        <img src={heroKeraton} alt="Keraton Yogyakarta" width={1280} height={896} loading="lazy" className="w-full" />
-        <figcaption className="mt-3 font-display italic text-sm text-ink-soft">{t("sejarah.caption")}</figcaption>
+        <img
+          src={heroKeraton}
+          alt="Keraton Yogyakarta"
+          width={1280}
+          height={896}
+          loading="lazy"
+          className="w-full"
+        />
+        <figcaption className="mt-3 font-display italic text-sm text-ink-soft">
+          {t("sejarah.caption")}
+        </figcaption>
       </figure>
 
       <ol className="relative border-l border-[var(--color-rule)]">
@@ -122,7 +140,9 @@ function SejarahPage() {
             </div>
             <div className="col-span-12 md:col-span-9">
               <h3 className="font-display text-3xl text-ink md:text-4xl">{tl(e.title)}</h3>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-soft md:text-base">{tl(e.body)}</p>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-soft md:text-base">
+                {tl(e.body)}
+              </p>
             </div>
           </li>
         ))}

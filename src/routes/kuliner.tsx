@@ -5,20 +5,29 @@ import gudeg from "@/assets/kuliner-gudeg.jpg";
 import bakpia from "@/assets/kuliner-bakpia.jpg";
 import sate from "@/assets/kuliner-sateklathak.jpg";
 import kopi from "@/assets/kuliner-kopijoss.jpg";
+import { createSeo } from "@/lib/seo";
 
 export const Route = createFileRoute("/kuliner")({
-  head: () => ({
-    meta: [
-      { title: "Kuliner Yogyakarta — Gudeg, Bakpia, Sate Klathak, Kopi Joss" },
-      { name: "description", content: "Peta rasa Yogyakarta: gudeg manis, bakpia pathok, sate klathak, dan kopi joss arang." },
-      { property: "og:title", content: "Kuliner Yogyakarta — Jogja Heritage" },
-      { property: "og:image", content: gudeg },
-    ],
-  }),
+  head: () =>
+    createSeo({
+      title: "Kuliner Yogyakarta | Jogja Heritage",
+      description: "Jelajahi gudeg, bakpia, sate klathak, kopi joss, dan kuliner khas Yogyakarta.",
+
+      url: "https://www.jogjadigitalcity.id/kuliner",
+
+      image: gudeg,
+    }),
+
   component: KulinerPage,
 });
 
-type Dish = { img: string; name: string; origin: LocalizedText; desc: LocalizedText; price: string };
+type Dish = {
+  img: string;
+  name: string;
+  origin: LocalizedText;
+  desc: LocalizedText;
+  price: string;
+};
 
 const dishes: Dish[] = [
   {
@@ -75,7 +84,9 @@ function KulinerPage() {
         <div className="md:col-span-8">
           <SectionLabel number="03" label={t("nav.kuliner")} />
           <h1 className="mt-6 font-display text-5xl leading-[1.02] text-ink md:text-7xl">
-            {t("kuliner.title.a")} <span className="italic text-terracotta">{t("kuliner.title.em")}</span> {t("kuliner.title.b")}
+            {t("kuliner.title.a")}{" "}
+            <span className="italic text-terracotta">{t("kuliner.title.em")}</span>{" "}
+            {t("kuliner.title.b")}
           </h1>
         </div>
         <div className="md:col-span-4">
@@ -87,10 +98,19 @@ function KulinerPage() {
         {dishes.map((d, i) => (
           <div key={d.name} className="group">
             <div className="overflow-hidden">
-              <img src={d.img} alt={d.name} width={1024} height={1024} loading="lazy" className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+              <img
+                src={d.img}
+                alt={d.name}
+                width={1024}
+                height={1024}
+                loading="lazy"
+                className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              />
             </div>
             <div className="mt-5 flex items-baseline justify-between">
-              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-terracotta">{String(i + 1).padStart(2, "0")} — {tl(d.origin)}</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-terracotta">
+                {String(i + 1).padStart(2, "0")} — {tl(d.origin)}
+              </p>
               <p className="font-mono text-[11px] text-ink-soft">{d.price}</p>
             </div>
             <h2 className="mt-2 font-display text-4xl text-ink">{d.name}</h2>
@@ -98,8 +118,6 @@ function KulinerPage() {
           </div>
         ))}
       </div>
-
-      
     </article>
   );
 }
