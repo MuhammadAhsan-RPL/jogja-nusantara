@@ -2,36 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://www.jogjadigitalcity.id/</loc>
-    <priority>1.0</priority>
-  </url>
+  <loc>https://www.jogjadigitalcity.id/</loc>
+</url>
 
-  <url>
-    <loc>https://www.jogjadigitalcity.id/history</loc>
-  </url>
+<url>
+  <loc>https://www.jogjadigitalcity.id/sejarah</loc>
+</url>
 
-  <url>
-    <loc>https://www.jogjadigitalcity.id/culture</loc>
-  </url>
+<url>
+  <loc>https://www.jogjadigitalcity.id/budaya</loc>
+</url>
 
-  <url>
-    <loc>https://www.jogjadigitalcity.id/cuisine</loc>
-  </url>
+<url>
+  <loc>https://www.jogjadigitalcity.id/kuliner</loc>
+</url>
 
-  <url>
-    <loc>https://www.jogjadigitalcity.id/places</loc>
-  </url>
+<url>
+  <loc>https://www.jogjadigitalcity.id/peta</loc>
+</url>
 
-  <url>
-    <loc>https://www.jogjadigitalcity.id/map</loc>
-  </url>
+<url>
+  <loc>https://www.jogjadigitalcity.id/teknologi</loc>
+</url>
 
-  <url>
-    <loc>https://www.jogjadigitalcity.id/technology</loc>
-  </url>
+<url>
+  <loc>https://www.jogjadigitalcity.id/kontak</loc>
+</url>
 
-  <url>
-    <loc>https://www.jogjadigitalcity.id/contact</loc>
-  </url>
+<url>
+  <loc>https://www.jogjadigitalcity.id/wisata</loc>
+</url>
 
 </urlset>
