@@ -6,6 +6,7 @@ import { destinations } from "@/data/wisata";
 import heroTugu from "@/assets/hero-tugu.jpg";
 import { ArrowUpRight } from "lucide-react";
 import { websiteSchema } from "../lib/schemas";
+import { organizationSchema } from "@/lib/schemaOrganization";
 
 export const Route = createFileRoute("/")({
   head: () => ({
